@@ -30,10 +30,12 @@ Sucessfull output will look as follows:
 
 We also added a module to remove the SPNs and unpopulate the `msds-additionaldnshostname` attribute, the module will also try to remove the DNS Record but it might not succeed because of insufficent permissions depending on the domain user we are using.
 ```
-Invoke-unconstrained.py -u LABS\Administrator -p aad3b435b51404eeaad3b435b51404ee:47bf8039a8506cd67c524a03ff84ba4e -r .\DEG-2023-10-17--18-20-42.961041 10.0.0.5
+Invoke-unconstrained.py -u LABS\DEG$ -p aad3b435b51404eeaad3b435b51404ee:fd8d7a6f868dc2d81aaf3eb3a9ea6adc -r .\DEG-2023-10-17--18-20-42.961041 10.0.0.5
 ```
 
-As can be seen above, on each exploitation, a state file is created which shows that changes made that needs to reverted.  
+As can be seen above, on each exploitation, a state file is created which shows that changes made that needs to reverted, including target, SPNs, and DNS records added.  
+
+#### Full Exploitation: 
 
 
 ### Credits
