@@ -1,4 +1,4 @@
-# Invoke-unconstrained  
+# Invoke-Unconstrained  
 A tool to fully automate exploitation of a compromised machine with unconstrained delegation.  
   
 In an effort to avoid EDRs and XDRs, we decided to find a way to fully automate the exploitation of `unconstrained delegation` without using a domain joined machine.  
