@@ -31,7 +31,7 @@ Invoke-unconstrained.py -u LABS\DEG$ -p aad3b435b51404eeaad3b435b51404ee:fd8d7a6
 ![image](https://github.com/ScorpionesLabs/Invoke-Unconstrained/assets/50461376/a16d91e3-ac86-483e-a8fc-f94c0bfc84f4)
 
 #### Reverting Changes:
-We as red teamers believe the cleanup process is important to restoring the victim network to its original state prior to the attack, therefore, the Invoke-Unconstrained tool will roll back all changes made by the tool after escalating our privileges.  
+Among red teams, we believe that the cleanup process is required after an attack. This feature will roll back all changes to the way they were before the attack.  
 
 The following example shows how to rollback changes that performed on the victim user to the original state.
 ```
